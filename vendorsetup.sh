@@ -18,6 +18,26 @@
 #
 # 	Please maintain this if you use this script or any part of it
 #
+FDEVICE="tanzanite"
+
+fox_get_target_device() {
+   local chkdev
+
+   chkdev=$(echo "$BASH_SOURCE" | grep -w "$FDEVICE")
+   if [ -n "$chkdev" ]; then
+      FOX_BUILD_DEVICE="$FDEVICE"
+      echo "#### BUILD_TARGET= $FDEVICE ####"
+   else
+      chkdev=$(set | grep BASH_ARGV | grep -w "$FDEVICE")
+      [ -n "$chkdev" ] && FOX_BUILD_DEVICE="$FDEVICE"
+   fi
+}
+
+if [ -z "$1" ] && [ -z "$FOX_BUILD_DEVICE" ]; then
+   fox_get_target_device
+fi
+
+if [ "$1" = "$FDEVICE" ] || [ "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 
 export LC_ALL="C.UTF-8"
 export FOX_VARIANT="K5.10"
@@ -40,3 +60,5 @@ export FOX_DELETE_MAGISK_ADDON=1
 export FOX_DELETE_INITD_ADDON=1
 export FOX_REMOVE_BASH=1
 export FOX_REMOVE_AAPT=1
+
+fi

@@ -54,6 +54,7 @@ OF_USE_DMCTL := 1
 
 # automatically wipe /metadata after data format
 OF_WIPE_METADATA_AFTER_DATAFORMAT := 1
+OF_FIX_DECRYPTION_ON_DATA_MEDIA := 1
 
 # avoid MTP issues after data format
 OF_BIND_MOUNT_SDCARD_ON_FORMAT := 1

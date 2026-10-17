@@ -6,9 +6,6 @@
 
 DEVICE_PATH := device/xiaomi/tanzanite
 
-TARGET_RECOVERY_DEVICE_DIRS := \
-    $(DEVICE_PATH)
-
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a

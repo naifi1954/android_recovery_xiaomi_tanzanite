@@ -26,7 +26,7 @@ fox_get_target_device() {
    chkdev=$(echo "$BASH_SOURCE" | grep -w "$FDEVICE")
    if [ -n "$chkdev" ]; then
       FOX_BUILD_DEVICE="$FDEVICE"
-      echo "#### BUILD_TARGET= $FDEVICE ####"
+      echo "#### BUILD_TARGET: $FDEVICE ####"
    else
       chkdev=$(set | grep BASH_ARGV | grep -w "$FDEVICE")
       [ -n "$chkdev" ] && FOX_BUILD_DEVICE="$FDEVICE"
